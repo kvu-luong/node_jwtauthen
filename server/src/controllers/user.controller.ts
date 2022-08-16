@@ -36,10 +36,10 @@ const UserController = {
     Auth.setNewRefreshToken(res, payload._id, user.tokenVersion);
     // update response
     response.status = true;
-    response.accessToken = Auth.createAccessToken(payload._id);
+    response.accessToken = Auth.createAccessToken({_id: payload._id});
     response.message = "New Access Token";
-
-    return res.send(response);
+    console.log(response, 'new refresh token ')
+    return res.status(200).json(response);
   },
 };
 

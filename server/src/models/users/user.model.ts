@@ -1,7 +1,7 @@
 import { getDb } from "@helper/db";
 import { hash, verify } from "argon2";
 import _ from "lodash";
-import { Collection } from "../../helpers/constant";
+import { Collection } from "../../utils/constant";
 import { UserParam, UserType, validatePassword } from "../../types";
 import { Document, ObjectId } from "mongodb";
 

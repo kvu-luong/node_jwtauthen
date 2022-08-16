@@ -75,3 +75,5 @@ need version of graphql ^15.3.0 because type-graphql only support to this versio
 11. refresh token on specific route => because we only want handle cookie in this route not all like graphql
 
 12. refreshToken being hacked -> using tokenVersion to update and prevent use old refreshToken
+
+13. Cors configure with cors and apollo

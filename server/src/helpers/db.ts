@@ -1,5 +1,5 @@
 import { MongoClient, Db } from "mongodb";
-import { logger } from "../utils/logger";
+import { logger } from "../helpers/logger";
 import * as dotenv from "dotenv";
 dotenv.config();
 

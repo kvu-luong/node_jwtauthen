@@ -17,6 +17,12 @@ export class UserResolver {
     return `Your user id is : ${payload?._id}`;
   }
 
+  @Query(() => UserType)
+  @UseMiddleware([isAuth])
+  async getProfile(@Ctx() { payload }: MyContext) {
+    return await User.getUserById({ _id: payload!._id });
+  }
+
   @Query(() => [UserType])
   async getAllUser() {
     const user = await User.findAll();
@@ -56,5 +62,17 @@ export class UserResolver {
     return {
       accessToken,
     };
+  }
+
+  @Mutation(() => Boolean)
+  @UseMiddleware([isAuth])
+  async logout(@Ctx() { res, payload }: MyContext) {
+    try {
+      Auth.setNewRefreshToken(res, payload!?._id, -1);
+      await User.updateTokenVersion({ _id: payload!?._id });
+      return true;
+    } catch (error) {
+      return false;
+    }
   }
 }
