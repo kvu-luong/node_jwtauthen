@@ -2,6 +2,7 @@ import React from "react";
 import ManageToken from "../auth/token";
 import { useGetUserProfileQuery, useLogoutMutation } from "../generated/graphql";
 import { useNavigate } from 'react-router-dom';
+import { EVENT_STORAGE_LOGOUT } from "../utils/constant";
 interface Props {}
 
 export const Profile: React.FC<Props> = () => {
@@ -15,6 +16,7 @@ export const Profile: React.FC<Props> = () => {
     if(result){
       ManageToken.setAcessToken("");
       navigate("/login")
+      window.localStorage.setItem(EVENT_STORAGE_LOGOUT, Date.now().toString());
     }
     
   }

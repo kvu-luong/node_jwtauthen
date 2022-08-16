@@ -1,5 +1,5 @@
 import jwtDecode, { JwtPayload } from "jwt-decode";
-import { REFRESH_TOKEN_URL } from "../utils/constant";
+import { EVENT_STORAGE_LOGOUT, REFRESH_TOKEN_URL } from "../utils/constant";
 let accessToken = "";
 let refreshTokenRequest: any = null;
 
@@ -56,4 +56,7 @@ const ManageToken = {
   },
 };
 
+window.addEventListener('storage', event => {
+  if(event.key === EVENT_STORAGE_LOGOUT) ManageToken.setAcessToken("");
+})
 export default ManageToken;
