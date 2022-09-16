@@ -79,11 +79,3 @@ need version of graphql ^15.3.0 because type-graphql only support to this versio
 13. Cors configure with cors and apollo
 
 test graph
-
-```mermaid
-  graph TD;
-      A-->B;
-      A-->C;
-      B-->D;
-      C-->D;
-```
