@@ -77,3 +77,13 @@ need version of graphql ^15.3.0 because type-graphql only support to this versio
 12. refreshToken being hacked -> using tokenVersion to update and prevent use old refreshToken
 
 13. Cors configure with cors and apollo
+
+test graph
+
+```mermaid
+  graph TD;
+      A-->B;
+      A-->C;
+      B-->D;
+      C-->D;
+```
